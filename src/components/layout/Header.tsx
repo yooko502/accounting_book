@@ -1,25 +1,33 @@
 "use client";
 import React from "react";
-import { Button, Avatar, Dropdown, Badge } from "antd";
-import { MenuOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
+import { Avatar, Dropdown, Badge } from "antd";
+import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import styles from "../../styles/layout.module.css";
 
 interface HeaderBarProps {
+  collapsed: boolean;
   onMenuClick: () => void;
   user?: { avatar?: string };
   infoCount?: number;
 }
 
-export default function HeaderBar({ onMenuClick, user, infoCount = 0 }: HeaderBarProps) {
+export default function HeaderBar({ user, infoCount = 0 }: HeaderBarProps) {
   return (
-    <header className={styles["layout-header"]}>
+    <header
+      className={styles["layout-header"]}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 101,
+        background: "#eaf2fb",
+        color: "#223354",
+        boxShadow: "none",
+        borderBottom: "1px solid #dbeafe",
+      }}
+    >
       <div className={styles["layout-header-left"]}>
-        <Button
-          type="text"
-          icon={<MenuOutlined />}
-          onClick={onMenuClick}
-          style={{ marginRight: 16 }}
-        />
         <span className={styles["layout-header-title"]}>AntD 布局示例</span>
       </div>
       <div className={styles["layout-header-right"]}>

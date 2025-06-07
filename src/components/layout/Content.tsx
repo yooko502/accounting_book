@@ -10,7 +10,7 @@ interface MainContentProps {
 
 export default function MainContent({ children }: MainContentProps) {
   return (
-    <Content className={styles["layout-content"]}>
+    <Content className={styles["layout-content"]} style={{ background: "#ffffff" }}>
       {children}
     </Content>
   );
